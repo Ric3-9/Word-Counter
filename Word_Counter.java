@@ -2,7 +2,7 @@ import java.util.*;
 import java.io.*;
 import java.util.stream.Collectors;
 public class Word_Counter {
-    /* Capitalizes input text (personal preference) */public static String TitleCase(String wrd) {
+    /* Capitalizes input text (personal preference) */public static String titleCase(String wrd) {
         StringBuilder cap = new StringBuilder();
         boolean toCap = true;
         for (char c : wrd.toCharArray()) {
@@ -42,7 +42,7 @@ public class Word_Counter {
         /* capitalization phase */String[] alphaArray = alphanumeric.toString().split("\\s+");
         for (String word : alphaArray) {
             if (word.isBlank()) continue;
-            sM.put(TitleCase(word), sM.getOrDefault(TitleCase(word), 0) + 1);
+            sM.put(titleCase(word), sM.getOrDefault(titleCase(word), 0) + 1);
             count++;
         }
         String wS = "---------";
@@ -51,9 +51,9 @@ public class Word_Counter {
         System.out.println("Unique Word Occurrences: " + sM.size());
         System.out.println("The Total Line Count: " + lineCount);
         System.out.print("\nDo you want the words shown by frequency(f) or alphabetically(a)? ");
-        /* determines the order the words are output */String Order = a.nextLine();
+        /* determines the order the words are output */String order = a.nextLine();
         /* separates outputs */wS = "\n"+wS;
-        switch (Order.toLowerCase()) {
+        switch (order.toLowerCase()) {
             case "frequency", "f":
                 System.out.println("Printed by Frequency:"+wS);
                 Map<String, Integer> freq = sM.entrySet()
